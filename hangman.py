@@ -14,7 +14,7 @@ end_of_game = False
 print(hangmanart.logo + '\n\n\n')
 lang = 0
 while lang != 1 or lang != 2:
-    lang = int(input("To play in English press: 1 \nTo play in Russian press: 2\n2"))
+    lang = int(input("To play in English press: 1 \nTo play in Russian press: 2\n"))
     if lang == 1:
         chosen_word = random.choice(hangman_wordlist.word_list)
         word_length = len(chosen_word)
