@@ -2,15 +2,15 @@ import random
 
 import hangmanart
 
+import hangman_wordlist
+
 display = []
 
 count = 0
 
 life = 7
 
-word_list = ["crazy", "monkey", "dog"]
-
-chosen_word = random.choice(word_list)
+chosen_word = random.choice(hangman_wordlist.word_list)
 
 word_length = len(chosen_word)
 
@@ -19,11 +19,11 @@ for _ in range(word_length):
 
 end_of_game = False
 
-print(hangmanart.logo)
+print(hangmanart.logo + '\n\n\n')
 
 while not end_of_game:
     print(' '.join(display))
-    guess = input("Enter a letter take a guess: ").lower()
+    guess = input("\n\nEnter a letter take a guess: ").lower()
 
     for position in range(word_length):
         letter = chosen_word[position]
@@ -36,7 +36,9 @@ while not end_of_game:
     if life == 0:
         end_of_game = True
         print("You lost")
+        print(f"The word was {chosen_word}")
 
     if "_" not in display:
         end_of_game = True
+        print(''.join(display))
         print("You won")
